@@ -550,7 +550,20 @@ section{padding:7rem 4rem}
 }
 .skill-cat:hover .skill-tag{background:var(--teal-pale);color:#0a5247}
 [data-theme="dark"] .skill-cat:hover .skill-tag{background:rgba(45,212,191,.12);color:var(--teal-lt)}
-
+}
+.skill-cat {
+  /* Your existing styles... */
+  text-align: center;  /* Add this */
+}
+.skill-cat-icon {
+  /* Your existing styles... */
+  display: inline-block; /* Change from block if needed */
+  margin: 0 auto;        /* Add this to center */
+}
+/* Targets the 10th card (last child) and centers it */
+.skills-grid .skill-cat:last-child {
+  grid-column: 2 / 3;  /* Places it in column 2 (center) */
+}
 /* ═══════════════════════════════════════
    PROOF / METRICS
 ═══════════════════════════════════════ */
@@ -1114,7 +1127,17 @@ footer{
           <span class="skill-tag">Financial Services</span>
         </div>
       </div>
-    </div>
+       <div class="skill-cat reveal center-on-last-row">
+        <div class="skill-cat-icon">🧠</div>
+        <div class="skill-cat-name">Core Human Attributes</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Adaptability in Fast-Changing Environments</span>
+         <span class="skill-tag">Emotional Intelligence for Leadership &amp; Teamwork</span>
+<span class="skill-tag">Relentless Problem-Solving at the Root Cause</span>
+<span class="skill-tag">Comfort with Ambiguity &amp; Imperfect Information</span>
+<span class="skill-tag">Resilience Under Pressure Without Burning Out</span>
+<span class="skill-tag">Intellectual Curiosity &amp; Continuous Learning</span>
+        </div>
   </div>
 </section>
 
