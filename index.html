@@ -875,7 +875,104 @@ footer{
 }
 #back-top.visible{opacity:1;transform:none;pointer-events:all}
 #back-top:hover{background:var(--teal-lt)}
-
+/* ═══════════════════════════════════════
+   CAREER TIMELINE
+═══════════════════════════════════════ */
+.timeline-wrap { margin-top: 4.5rem; }
+.tl-label { 
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; 
+  color: var(--teal); margin-bottom: 1.5rem; 
+  display: flex; align-items: center; gap: .6rem; 
+}
+.tl-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--teal); }
+.timeline-track { position: relative; padding: 0 1.5rem; }
+.tl-line { 
+  position: absolute; top: 10px; left: 1.5rem; right: 1.5rem; 
+  height: 1px; background: var(--border); 
+}
+.tl-stops { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+.tl-stop { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.tl-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--paper-surface); border: 1.5px solid var(--border);
+  margin-bottom: .55rem; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.tl-stop.active .tl-dot { background: var(--teal); border-color: var(--teal); }
+.tl-stop.active .tl-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--slate); }
+.tl-stop:hover .tl-dot { border-color: var(--teal); }
+.tl-year { font-family: var(--mono, monospace); font-size: .65rem; color: var(--ink-muted); margin-bottom: .2rem; }
+.tl-co { font-size: .68rem; font-weight: 500; color: var(--ink); text-align: center; line-height: 1.35; }
+.tl-role-sm { font-size: .6rem; color: var(--ink-muted); text-align: center; line-height: 1.4; margin-top: .12rem; }
+.tl-detail {
+  margin-top: 1.5rem; padding: 1.1rem 1.35rem;
+  background: var(--paper-surface);
+  border: 1px solid var(--border-teal);
+  border-radius: 3px;
+  transition: opacity .25s;
+}
+.tl-detail-title { font-size: .82rem; font-weight: 500; color: var(--ink); margin-bottom: .55rem; }
+.tl-metrics { display: flex; flex-wrap: wrap; gap: .35rem; }
+.tl-metric-badge {
+  font-size: .68rem; padding: .24rem .65rem;
+  background: var(--teal-pale); color: var(--slate);
+  border: 1px solid var(--border-teal); border-radius: 2rem;
+}
+[data-theme="dark"] .tl-metric-badge { 
+  background: rgba(45,212,191,.12); 
+  color: var(--teal-lt); 
+  border-color: var(--border-teal);
+}
+/* ═══════════════════════════════════════
+   CAREER TIMELINE
+═══════════════════════════════════════ */
+.timeline-wrap { margin-top: 4.5rem; }
+.tl-label { 
+  font-size: .68rem; letter-spacing: .2em; text-transform: uppercase; 
+  color: var(--teal); margin-bottom: 1.5rem; 
+  display: flex; align-items: center; gap: .6rem; 
+}
+.tl-label::before { content: ''; width: 1.5rem; height: 1px; background: var(--teal); }
+.timeline-track { position: relative; padding: 0 1.5rem; }
+.tl-line { 
+  position: absolute; top: 10px; left: 1.5rem; right: 1.5rem; 
+  height: 1px; background: var(--border); 
+}
+.tl-stops { display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+.tl-stop { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+.tl-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--paper-surface); border: 1.5px solid var(--border);
+  margin-bottom: .55rem; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color .2s, background .2s;
+}
+.tl-stop.active .tl-dot { background: var(--teal); border-color: var(--teal); }
+.tl-stop.active .tl-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--slate); }
+.tl-stop:hover .tl-dot { border-color: var(--teal); }
+.tl-year { font-family: var(--mono, monospace); font-size: .65rem; color: var(--ink-muted); margin-bottom: .2rem; }
+.tl-co { font-size: .68rem; font-weight: 500; color: var(--ink); text-align: center; line-height: 1.35; }
+.tl-role-sm { font-size: .6rem; color: var(--ink-muted); text-align: center; line-height: 1.4; margin-top: .12rem; }
+.tl-detail {
+  margin-top: 1.5rem; padding: 1.1rem 1.35rem;
+  background: var(--paper-surface);
+  border: 1px solid var(--border-teal);
+  border-radius: 3px;
+  transition: opacity .25s;
+}
+.tl-detail-title { font-size: .82rem; font-weight: 500; color: var(--ink); margin-bottom: .55rem; }
+.tl-metrics { display: flex; flex-wrap: wrap; gap: .35rem; }
+.tl-metric-badge {
+  font-size: .68rem; padding: .24rem .65rem;
+  background: var(--teal-pale); color: var(--slate);
+  border: 1px solid var(--border-teal); border-radius: 2rem;
+}
+[data-theme="dark"] .tl-metric-badge { 
+  background: rgba(45,212,191,.12); 
+  color: var(--teal-lt); 
+  border-color: var(--border-teal);
+}
 /* ═══════════════════════════════════════
    RESPONSIVE — TABLET ≤ 1024px
 ═══════════════════════════════════════ */
@@ -1198,6 +1295,7 @@ footer{
         </div>
       </div>
     </div>
+
 <!-- Career Timeline -->
 <div class="timeline-wrap reveal">
   <div class="tl-label">Career arc</div>
@@ -1249,6 +1347,7 @@ footer{
 </div>
 
 <!-- Testimonials -->
+
     <div class="testimonials-section">
       <div class="section-label reveal" style="margin-bottom:1.5rem">Social Proof</div>
       <div class="testimonial-carousel reveal" style="transition-delay:.1s">
@@ -1591,7 +1690,7 @@ const submitBtn = document.querySelector('.form-submit');
 if (submitBtn) {
   submitBtn.onclick = handleSubmit;
 }
-   /* ── CAREER TIMELINE ── */
+/* ── CAREER TIMELINE ── */
 const tlData = [
   {
     title: 'FIS, India · Senior Analyst WFM · Dec 2002 – Dec 2006',
