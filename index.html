@@ -1198,7 +1198,57 @@ footer{
         </div>
       </div>
     </div>
+<!-- Career Timeline -->
+<div class="timeline-wrap reveal">
+  <div class="tl-label">Career arc</div>
+  <div class="timeline-track">
+    <div class="tl-line"></div>
+    <div class="tl-stops" id="tlStops">
+      <div class="tl-stop" data-idx="0">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2002</div>
+        <div class="tl-co">FIS</div>
+        <div class="tl-role-sm">Senior Analyst WFM · India</div>
+      </div>
+      <div class="tl-stop" data-idx="1">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2007</div>
+        <div class="tl-co">HSBC</div>
+        <div class="tl-role-sm">Asst Mgr Analytics &amp; MIS · India</div>
+      </div>
+      <div class="tl-stop active" data-idx="2">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2014</div>
+        <div class="tl-co">Mashreq Bank</div>
+        <div class="tl-role-sm">AVP CX Projects · Dubai UAE</div>
+      </div>
+      <div class="tl-stop" data-idx="3">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-co">NZ Safety Blackwoods</div>
+        <div class="tl-role-sm">Mgmt Consultant · Auckland</div>
+      </div>
+      <div class="tl-stop" data-idx="4">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Now</div>
+        <div class="tl-co">Open to roles</div>
+        <div class="tl-role-sm">Auckland, NZ market</div>
+      </div>
+    </div>
+  </div>
+  <div class="tl-detail" id="tlDetail">
+    <div class="tl-detail-title" id="tlDetailTitle">Mashreq Bank, Dubai UAE · AVP CX Projects &amp; User Journey · Sep 2014 – Sep 2024</div>
+    <div class="tl-metrics" id="tlDetailMetrics">
+      <span class="tl-metric-badge">+45pts NPS</span>
+      <span class="tl-metric-badge">40% contact reduction</span>
+      <span class="tl-metric-badge">CEO's Club ×3</span>
+      <span class="tl-metric-badge">Qualtrics VOC implementation</span>
+      <span class="tl-metric-badge">15% sprint predictability improvement</span>
+    </div>
+  </div>
+</div>
 
+<!-- Testimonials -->
     <div class="testimonials-section">
       <div class="section-label reveal" style="margin-bottom:1.5rem">Social Proof</div>
       <div class="testimonial-carousel reveal" style="transition-delay:.1s">
@@ -1540,6 +1590,52 @@ async function handleSubmit(e) {
 const submitBtn = document.querySelector('.form-submit');
 if (submitBtn) {
   submitBtn.onclick = handleSubmit;
+}
+   /* ── CAREER TIMELINE ── */
+const tlData = [
+  {
+    title: 'FIS, India · Senior Analyst WFM · Dec 2002 – Dec 2006',
+    badges: ['WFM scheduling & MIS', 'Single point of contact for US clients', 'Team oversight & escalation management', 'Client SLA management']
+  },
+  {
+    title: 'HSBC, India · Assistant Manager Analytics & MIS · Sep 2007 – Jun 2014',
+    badges: ['MIS team of 12', 'Automated data validation controls', 'Outstanding Performance Award – MIS 2016', 'Workforce capacity forecasting']
+  },
+  {
+    title: 'Mashreq Bank, Dubai UAE · AVP CX Projects & User Journey · Sep 2014 – Sep 2024',
+    badges: ['+45pts NPS', '40% contact reduction', 'CEO\'s Club ×3', 'Qualtrics VOC implementation', '15% sprint predictability improvement']
+  },
+  {
+    title: 'NZ Safety Blackwoods · Management Consultant · Sep 2025 – Oct 2025',
+    badges: ['$500K revenue opportunity identified', 'DeciMatrix segmentation model', 'B2B tiered engagement strategy', 'Executive buy-in secured']
+  },
+  {
+    title: 'Available — Auckland, NZ · Seeking BA / PO / CX roles',
+    badges: ['MBA Massey 2025 (Top Academic Excellence)', 'CSPO certified', 'NZ work rights', 'Available now']
+  }
+];
+
+const tlStops = document.querySelectorAll('.tl-stop');
+if (tlStops.length) {
+  tlStops.forEach(stop => {
+    stop.addEventListener('click', () => {
+      tlStops.forEach(s => s.classList.remove('active'));
+      stop.classList.add('active');
+      const d = tlData[+stop.dataset.idx];
+      document.getElementById('tlDetailTitle').textContent = d.title;
+      const container = document.getElementById('tlDetailMetrics');
+      container.innerHTML = d.badges.map(b => `<span class="tl-metric-badge">${b}</span>`).join('');
+    });
+    
+    stop.addEventListener('mouseenter', () => {
+      tlStops.forEach(s => s.classList.remove('active'));
+      stop.classList.add('active');
+      const d = tlData[+stop.dataset.idx];
+      document.getElementById('tlDetailTitle').textContent = d.title;
+      const container = document.getElementById('tlDetailMetrics');
+      container.innerHTML = d.badges.map(b => `<span class="tl-metric-badge">${b}</span>`).join('');
+    });
+  });
 }
 // ========== END FORMSUBmit.CO INTEGRATION ==========
 </script>
